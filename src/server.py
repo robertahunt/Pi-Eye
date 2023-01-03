@@ -1,6 +1,7 @@
 import time
 import logging
 from bottle import route, run
+from logging import handlers
 from picamera2 import Picamera2, Preview
 
 global picam2
@@ -21,7 +22,7 @@ class PiEye():
         logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
         logger = logging.getLogger()
 
-        fileHandler = logging.RotatingFileHandler('/home/pi/pieye.log', maxBytes=(1048576*5), backupCount=7)
+        fileHandler = logging.handlers.RotatingFileHandler('/home/pi/pieye.log', maxBytes=(1048576*5), backupCount=7)
         fileHandler.setFormatter(logFormatter)
         logger.addHandler(fileHandler)
 
