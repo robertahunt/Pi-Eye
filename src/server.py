@@ -1,4 +1,10 @@
-from bottle import run
-from routes import *
+import socket
 
-run(host="pieyene.local", port=8080, debug=True, reloader=True)
+from routes import *
+from bottle import run
+
+host = (
+    socket.gethostname() + ".local"
+)  # should be something like: pieye-spider.local, this is set when setting up the pieye
+
+run(host=host, port=8080, debug=True, reloader=True)
