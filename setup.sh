@@ -29,5 +29,5 @@ sudo sed -i 's/#ShutdownWatchdogSec=10min/ShutdownWatchdogSec=2min/' /etc/system
 
 # turn on cronjob to update pieye git
 sudo chmod +x Pi-Eye/cron_pull.sh
-(sudo crontab -l && echo "*/15 * * * * /home/pi/Pi-Eye/cron_pull.sh") | sudo crontab -
+sudo echo "* * * * * pi /bin/sh /home/pi/Pi-Eye/cron_pull.sh" > sudo /etc/cron.d/pieye_pull
 
