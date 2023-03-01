@@ -27,3 +27,7 @@ sudo usermod -a -G video pi # after opencv install, seems cannot access camera
 sudo cp Pi-Eye/pieye.service /lib/systemd/system/
 sudo systemctl enable pieye
 sudo systemctl start pieye
+
+# turn on watchdog
+sudo sed -i 's/#RuntimeWatchdogSec=0/RuntimeWatchdogSec=10/' /etc/systemd/system.conf
+sudo sed -i 's/#ShutdownWatchdogSec=10min/ShutdownWatchdogSec=2min/' /etc/systemd/system.conf

@@ -10,6 +10,8 @@ sudo apt install python3-opencv -y
 # get latest code
 git clone https://github.com/robertahunt/Pi-Eye.git /home/pi/Pi-Eye
 
+sudo chmod +x Pi-Eye/setup.sh
+
 # install python modules
 python -m pip install bottle
 python -m pip install matplotlib
@@ -29,5 +31,5 @@ sudo sed -i 's/#ShutdownWatchdogSec=10min/ShutdownWatchdogSec=2min/' /etc/system
 
 # turn on cronjob to update pieye git
 sudo chmod +x Pi-Eye/cron_pull.sh
-sudo echo "* * * * * pi /bin/sh /home/pi/Pi-Eye/cron_pull.sh" > sudo /etc/cron.d/pieye_pull
+sudo echo "*/5 * * * * pi /bin/sh /home/pi/Pi-Eye/cron_pull.sh" > sudo /etc/cron.d/pieye_pull
 
